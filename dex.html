@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Green Earth</title>
+    <!-- ===== Start: Fav Icon ===== -->
+    <link rel="shortcut icon" href="./assets/fav.ico" type="image/x-icon" />
+    <!-- ===== End: Fav Icon ===== -->
+    <!-- ===== Start: DaisyUI and Tailwind CDN ===== -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- ===== End: DaisyUI and Tailwind CDN ===== -->
+
+    <!-- ===== Start: Google Font ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" />
+    <!-- ===== End: Google Font ===== -->
+
+    <!-- ===== Start: Font Awesome CDN ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- ===== End: Font Awesome CDN ===== -->
+
+    <!-- style  -->
+    <style>
+        body {
+            font-family: "Work Sans", sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-[#f4fdf0] h-full">
+    <!-- ===== Start: Header Section ===== -->
+    <header>
+        <!-- ===== Start: NavBar Section ===== -->
+        <nav class="bg-[#15803D]">
+            <section class="w-10/12 mx-auto flex justify-between items-center py-5 text-white">
+                <!-- ===== Start: Logo ===== -->
+                <a class="font-medium text-2xl" href="#">Green Earth</a>
+                <!-- ===== End: Logo ===== -->
+
+                <!-- ===== Start: Nav Links ===== -->
+                <ul class="hidden md:flex gap-7 text-base">
+                    <li>
+                        <a class="cursor-pointer hover:underline" href="#about-section">About</a>
+                    </li>
+                    <li>
+                        <a class="cursor-pointer hover:underline" href="#gallery">Gallery</a>
+                    </li>
+                    <li>
+                        <a class="cursor-pointer hover:underline" href="#plantTree">Plant A Tree</a>
+                    </li>
+                </ul>
+                <!-- ===== End: Nav Links ===== -->
+
+                <!-- ===== Start: Plant A tree Btn ===== -->
+                <button class="hidden md:inline-block btn text-[#15803D] bg-[#FACC15] border-none rounded-full">
+                    Plant A Tree
+                </button>
+                <!-- ===== End: Plant A tree Btn ===== -->
+
+                <!-- ===== Start: Mobile Menu ===== -->
+                <div class="block md:hidden">
+                    <i onclick="showNav()" class="fa-solid fa-bars text-xl cursor-pointer"></i>
+                </div>
+
+                <div id="mobileNav"
+                    class="block md:hidden fixed right-[-200px] bg-[#15803D] top-0 z-20 px-5 pt-5 h-full space-y-3 transition-all duration-300">
+                    <!-- ===== Start: Close Icon ===== -->
+                    <div>
+                        <i onclick="closeNav()" class="fa-solid fa-xmark text-xl cursor-pointer"></i>
+                    </div>
+                    <!-- ===== End: Close Icon ===== -->
+                    <!-- ===== Start: Nav Links ===== -->
+                    <ul class="flex flex-col gap-2 text-sm pt-4">
+                        <li>
+                            <a class="cursor-pointer hover:underline" href="#about-section">About</a>
+                        </li>
+                        <li>
+                            <a class="cursor-pointer hover:underline" href="#gallery">Gallery</a>
+                        </li>
+                        <li>
+                            <a class="cursor-pointer hover:underline" href="#plantTree">Plant A Tree</a>
+                        </li>
+                    </ul>
+                    <!-- ===== End: Nav Links ===== -->
+
+                    <!-- ===== Start: Plant A tree Btn ===== -->
+                    <button class="btn text-[#15803D] bg-[#FACC15] border-none rounded-lg">
+                        Plant A Tree
+                    </button>
+                    <!-- ===== End: Plant A tree Btn ===== -->
+                </div>
+                <!-- ===== End: Mobile Menu ===== -->
+                <div onclick="closeNav()" id="overlay" class="bg-[#000000b3] hidden fixed inset-0 z-10"></div>
+            </section>
+        </nav>
+        <!-- ===== End: NavBar Section ===== -->
+
+        <!-- ===== Start: Banar Section ===== -->
+        <section class="bg-[#CFF0DC] flex flex-col md:flex-row items-center justify-between">
+            <!-- ===== Start: Mobile Banar Logo ===== -->
+            <div class="flex md:hidden w-42 justify-center mb-2 mt-4">
+                <img class="w-full" src="./assets/logo.png" alt="leaf image" loading="lazy" />
+            </div>
+            <!-- ===== End: Mobile Banar Logo ===== -->
+            <img class="hidden md:inline-block self-end md:w-52 xl:w-72 2xl:w-fit" src="./assets/hero-leaf1.png"
+                alt="leaf image on left side" loading="lazy" />
+            <div class="text-center md:py-4">
+                <h1 class="text-[#1F2937] text-2xl 2xl:text-5xl font-bold">
+                    Plant a Tree, Grow a Future
+                </h1>
+                <p class="text-[#1F2937] text-sm md:text-base 2xl:text-xl pt-1 p-4 md:pt-2">
+                    Join our mission to plant 1 million trees and make the Earth greener
+                    for future generations.
+                </p>
+                <!-- ===== Start: Get Involved ===== -->
+                <button class="hidden md:inline-block btn text-[#15803D] bg-[#FACC15] border-none rounded-full">
+                    Get Involved
+                </button>
+                <!-- ===== End: Get Involved ===== -->
+            </div>
+            <img class="hidden md:inline-block self-end md:w-52 xl:w-72 2xl:w-fit" src="./assets/hero-leaf2.png"
+                alt="leaf image on right side" loading="lazy" />
+        </section>
+        <!-- ===== End: Banar Section ===== -->
+    </header>
+    <!-- ===== End: Header Section ===== -->
+
+    <!-- ===== Start: Main Section ===== -->
+    <main>
+        <h2 class="text-center text-4xl font-semibold mt-20 mb-12">
+            Choose Our Trees
+        </h2>
+        <!-- ===== Start: Choose Our Trees Section ===== -->
+        <section class="w-10/12 mx-auto grid grid-cols-5 gap-5">
+            <div class="col-span-1 p-2 ">
+                <h2 class="text-xl font-semibold mb-3">Categories</h2>
+                <div>
+                    <ul id="categoriesContainer" class=""></ul>
+                </div>
+            </div>
+            <div id="treesCardContainer" class="col-span-3 grid md:grid-cols-2 xl:grid-cols-3 gap-5"></div>
+            <div class="col-span-1 bg-amber-500"></div>
+        </section>
+        <!-- ===== End: Choose Our Trees Section ===== -->
+    </main>
+    <!-- ===== End: Main Section ===== -->
+
+    <!-- ===== Start: Footer Section ===== -->
+    <footer></footer>
+    <!-- ===== End: Footer Section ===== -->
+
+    <!-- ===== Start: Script JS ===== -->
+    <script src="./script/script.js"></script>
+    <!-- ===== End: Script JS ===== -->
+</body>
+
+</html>
