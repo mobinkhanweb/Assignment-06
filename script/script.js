@@ -4,6 +4,9 @@
 // navbar functionality for mobile
 const mobileNav = document.getElementById("mobileNav");
 const overlay = document.getElementById("overlay");
+
+// Array for cart
+let carts = [];
 const showNav = () => {
     mobileNav.classList.remove("right-[-200px]");
     mobileNav.classList.add("right-0");
@@ -19,6 +22,16 @@ const closeNav = () => {
 const categoriesContainer = document.querySelector("#categoriesContainer");
 const treesCardContainer = document.querySelector("#treesCardContainer");
 const cartContainer = document.querySelector("#cartContainer");
+const loader = document.querySelector("#loader");
+
+// Function to show to loading
+const showLoading = () => {
+    treesCardContainer.innerHTML = `
+        <div id="loader" class="justify-self-center col-span-full">
+            <span class="loading loading-dots loading-xl"></span>
+        </div>
+  `;
+};
 
 // Function to load the category
 const loadCategory = async () => {
@@ -64,6 +77,7 @@ const showCategory = (categories) => {
 
 // Function to load tress by categories
 const loadTreesByCategory = async (id) => {
+    showLoading();
     try {
         const res = await fetch(
             `https://openapi.programming-hero.com/api/category/${id}`
@@ -76,15 +90,6 @@ const loadTreesByCategory = async (id) => {
     }
 };
 
-// {
-//     "id": 1,
-//     "image": "https://i.ibb.co.com/cSQdg7tf/mango-min.jpg",
-//     "name": "Mango Tree",
-//     "description": "A fast-growing tropical tree that produces delicious, juicy mangoes during summer.Its dense green canopy offers shade, while its sweet fruits are rich in vitamins and minerals.",
-//     "category": "Fruit Tree",
-//     "price": 500
-// }
-
 // Function to show Tress By Category
 const showTressByCategory = (trees) => {
     treesCardContainer.innerHTML = "";
@@ -92,7 +97,7 @@ const showTressByCategory = (trees) => {
         trees.forEach((tree) => {
             //   console.log(tree);
             treesCardContainer.innerHTML += `
-            <div class="card p-4 bg-white h-fit shadow-sm">
+            <div id="${tree.id}" class="card p-4 bg-white h-fit shadow-sm">
                 <figure class="h-40">
                     <img
                     src="${tree.image}"
@@ -116,11 +121,7 @@ const showTressByCategory = (trees) => {
         const addToCartBtn = document.querySelectorAll(".add2CartBtn");
         addToCartBtn.forEach((cartBtn) => {
             cartBtn.addEventListener("click", (e) => {
-                const parent = e.target.parentNode.parentNode;
-                const title = parent.querySelector(".card-title").textContent;
-                const price = parent.querySelector(".price").textContent;
-                console.log(title, price);
-                showCart(title, price);
+                handleCart(e);
             });
         });
     } catch (e) {
@@ -128,32 +129,67 @@ const showTressByCategory = (trees) => {
     }
 };
 
+// Function for handle Cart
+const handleCart = (e) => {
+    const parent = e.target.parentNode.parentNode;
+    const id = parent.parentNode.id;
+    const title = parent.querySelector(".card-title").textContent;
+    const price = parent.querySelector(".price").textContent;
+    carts.push({
+        id: id,
+        title: title,
+        price: price,
+    });
+    showCart(carts);
+};
+
 // Function for add treen into cart
-const showCart = (title, price) => {
-    cartContainer.innerHTML += `
-          <div class="p-2 mb-3  shadow rounded-2xl">
-            <div
-              class="bg-green-100 rounded-2xl flex justify-between items-center px-4 py-3 "
-            >
-              <div class="space-y-1">
-                <h5 class="font-medium">${title}</h5>
-                <span class="text-gray-400 "
-                  ><i
-                    class="fa-solid fa-bangladeshi-taka-sign text-gray-400 text-sm"
+const showCart = (carts) => {
+    // alert("added cart")
+    const totalPrice = carts.reduce((acc, cur) => acc + Number(cur.price), 0);
+    console.log(totalPrice);
+    cartContainer.innerHTML = "";
+    carts.forEach((cart) => {
+        cartContainer.innerHTML += `
+            <div id="${cart.id}" class="p-2 mb-2 shadow rounded-2xl">
+              <div
+                class="bg-green-100 rounded-2xl flex justify-between items-center px-4 py-3 "
+              >
+                <div class="space-y-1">
+                  <h5 class="font-medium">${cart.title}</h5>
+                  <span class="text-gray-400 "
+                    ><i
+                      class="fa-solid fa-bangladeshi-taka-sign text-gray-400 text-sm"
+                    ></i
+                    ><span>${cart.price}</span>
+                    <i class="fa-solid fa-xmark text-gray-400 text-[9px]"></i>
+                    1
+                  </span>
+                </div>
+                <span
+                  ><i onclick="handleDeleteItem(${cart.id})"
+                    class="removeCart fa-solid fa-xmark text-gray-400 text-sm cursor-pointer"
                   ></i
-                  ><span>${price}</span>
-                  <i class="fa-solid fa-xmark text-gray-400 text-[9px]"></i>
-                  1
-                </span>
+                ></span>
               </div>
-              <span
-                ><i
-                  class="removeCart fa-solid fa-xmark text-gray-400 text-sm cursor-pointer"
-                ></i
-              ></span>
-            </div>
-          </div>
+              </div>
+    `;
+    });
+    const div = document.createElement("div");
+    div.innerHTML = `
+        <div class="flex justify-between items-center">
+            <h4 class="font-medium">Total</h4>
+            <p><i class="fa-solid fa-bangladeshi-taka-sign"></i><span class="font-medium">${totalPrice}</span></p>
+        </div> 
   `;
+    cartContainer.appendChild(div);
+};
+
+// Function for delete item from cart
+const handleDeleteItem = (id) => {
+    const filterredCart = carts.filter((cart) => Number(cart.id) !== id);
+    carts = filterredCart;
+    showCart(carts);
 };
 
 // Function to load All Trees Category by Default
@@ -166,8 +202,6 @@ const loadAllTreesCategory = async () => {
         console.log(e);
     }
 };
-
-
 
 // Call Load Category Function to load category
 loadCategory();

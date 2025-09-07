@@ -190,26 +190,28 @@
 
 
     <!-- our impact sec  -->
-    <!-- Our Impact Section -->
     <section class="w-full max-w-6xl mx-auto py-12">
         <h2 class="text-center text-2xl font-semibold text-gray-800 mb-8">Our Impact</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
             <!-- Card 1 -->
-            <div class="bg-white shadow rounded-lg p-8 text-center">
+            <div
+                class="bg-white shadow rounded-lg p-8 text-center transform transition duration-300 hover:-translate-y-2 hover:bg-green-50">
                 <h3 class="text-2xl font-bold text-green-600">500K+</h3>
                 <p class="text-gray-600 mt-2">Trees Planted</p>
             </div>
 
             <!-- Card 2 -->
-            <div class="bg-white shadow rounded-lg p-8 text-center">
+            <div
+                class="bg-white shadow rounded-lg p-8 text-center transform transition duration-300 hover:-translate-y-2 hover:bg-green-50">
                 <h3 class="text-2xl font-bold text-green-600">120+</h3>
                 <p class="text-gray-600 mt-2">Communities Involved</p>
             </div>
 
             <!-- Card 3 -->
-            <div class="bg-white shadow rounded-lg p-8 text-center">
+            <div
+                class="bg-white shadow rounded-lg p-8 text-center transform transition duration-300 hover:-translate-y-2 hover:bg-green-50">
                 <h3 class="text-2xl font-bold text-green-600">30+</h3>
                 <p class="text-gray-600 mt-2">Countries Reached</p>
             </div>
@@ -217,29 +219,50 @@
         </div>
     </section>
 
-    <!-- modal -->
 
+    <!-- ===== Start: Footer Section ===== -->
+    <footer class="bg-green-800 text-white ">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <!-- Centered Heading -->
+            <h2 class="text-3xl font-bold  py-10">Plant a Tree Today</h2>
 
-    <footer></footer>
+            <!-- Form Container with shadow and hover effect -->
+            <form
+                class="bg-green-700 rounded-lg p-6 flex flex-col gap-4 mx-auto w-full md:w-2/3 shadow-md transform transition-transform duration-300 hover:-translate-y-2">
+
+                <!-- Name Input -->
+                <input type="text" placeholder="Your Name"
+                    class="p-3 rounded-md focus:outline-none text-gray-900 bg-white" required />
+
+                <!-- Email Input -->
+                <input type="email" placeholder="Your Email"
+                    class="bg-white p-3 rounded-md focus:outline-none text-gray-900" required />
+
+                <!-- Number of Trees Dropdown -->
+                <select class=" bg-white p-3 rounded-md focus:outline-none text-gray-900" required>
+                    <option value="">Number of Trees</option>
+                    <option value="1">1 tree - 5$</option>
+                    <option value="5">5 trees - 25$</option>
+                </select>
+
+                <!-- Submit Button -->
+                <button type="submit"
+                    class="bg-[#FACC15] text-green-800 font-semibold py-3 rounded-[32px] hover:bg-yellow-300 transition-colors mt-4">
+                    Donate Now
+                </button>
+            </form>
+        </div>
+        <div class="bg-green-900 text-center mb-0 p-4 mt-12">
+            <p class="text-[12px]">© 2025 Green Earth. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <!-- ===== End: Footer Section ===== -->
+
     <!-- ===== End: Footer Section ===== -->
 
     <!-- ===== Start: Script JS ===== -->
     <script src="./script/script.js"></script>
     <!-- ===== End: Script JS ===== -->
-    <!-- Tree Modal -->
-    <div id="treeModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden z-50">
-        <div class="bg-white rounded-2xl max-w-md w-full overflow-hidden shadow-lg relative">
-            <button id="closeTreeModal"
-                class="absolute top-3 right-3 text-gray-500 hover:text-gray-800 font-bold text-xl">&times;</button>
-            <div class="p-5 space-y-4">
-                <h2 id="modalTitle" class="text-2xl font-bold text-right text-gray-800">Tree Name</h2>
-                <img id="modalImage" src="" alt="Tree Image" class="w-full h-48 object-cover rounded-lg">
-                <p id="modalPrice" class="text-lg font-semibold text-gray-800">AED 0</p>
-                <p id="modalDescription" class="text-gray-600 text-sm">Tree description goes here.</p>
-            </div>
-        </div>
-    </div>
-
 </body>
 
 </html>
