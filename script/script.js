@@ -167,6 +167,8 @@ const loadAllTreesCategory = async () => {
     }
 };
 
+
+
 // Call Load Category Function to load category
 loadCategory();
 

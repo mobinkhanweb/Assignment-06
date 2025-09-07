@@ -157,13 +157,89 @@
     </main>
     <!-- ===== End: Main Section ===== -->
 
-    <!-- ===== Start: Footer Section ===== -->
+
+    <!-- about the campaign  -->
+
+    <section class="max-w-5xl mx-auto py-16 px-6">
+        <h2 class="text-2xl font-semibold text-center text-gray-800 mb-12">About the Campaign</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+
+            <!-- Left Image -->
+            <div class="flex justify-center">
+                <img src="./assets/about.png" alt="Plant" class="rounded-xl shadow-md">
+            </div>
+
+            <!-- Right Text -->
+            <div>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    Green Earth is a global tree plantation initiative dedicated to fighting climate change.
+                    Since our start, we’ve planted over 500,000 trees worldwide. By joining our campaign,
+                    you help restore forests, create habitats for wildlife, and combat global warming.
+                </p>
+
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <li>Restoration of natural habitats</li>
+                    <li>Improvement of air quality</li>
+                    <li>Support for local communities</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- our impact sec  -->
+    <!-- Our Impact Section -->
+    <section class="w-full max-w-6xl mx-auto py-12">
+        <h2 class="text-center text-2xl font-semibold text-gray-800 mb-8">Our Impact</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <!-- Card 1 -->
+            <div class="bg-white shadow rounded-lg p-8 text-center">
+                <h3 class="text-2xl font-bold text-green-600">500K+</h3>
+                <p class="text-gray-600 mt-2">Trees Planted</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white shadow rounded-lg p-8 text-center">
+                <h3 class="text-2xl font-bold text-green-600">120+</h3>
+                <p class="text-gray-600 mt-2">Communities Involved</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white shadow rounded-lg p-8 text-center">
+                <h3 class="text-2xl font-bold text-green-600">30+</h3>
+                <p class="text-gray-600 mt-2">Countries Reached</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- modal -->
+
+
     <footer></footer>
     <!-- ===== End: Footer Section ===== -->
 
     <!-- ===== Start: Script JS ===== -->
     <script src="./script/script.js"></script>
     <!-- ===== End: Script JS ===== -->
+    <!-- Tree Modal -->
+    <div id="treeModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden z-50">
+        <div class="bg-white rounded-2xl max-w-md w-full overflow-hidden shadow-lg relative">
+            <button id="closeTreeModal"
+                class="absolute top-3 right-3 text-gray-500 hover:text-gray-800 font-bold text-xl">&times;</button>
+            <div class="p-5 space-y-4">
+                <h2 id="modalTitle" class="text-2xl font-bold text-right text-gray-800">Tree Name</h2>
+                <img id="modalImage" src="" alt="Tree Image" class="w-full h-48 object-cover rounded-lg">
+                <p id="modalPrice" class="text-lg font-semibold text-gray-800">AED 0</p>
+                <p id="modalDescription" class="text-gray-600 text-sm">Tree description goes here.</p>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
