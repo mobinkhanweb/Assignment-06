@@ -138,7 +138,7 @@
             Choose Our Trees
         </h2>
         <!-- ===== Start: Choose Our Trees Section ===== -->
-        <section class="w-10/12 mx-auto grid grid-cols-5 gap-5">
+        <section class="w-10/12 mx-auto grid grid-cols-5 gap-5 sm:col-span-2 bg-slate-700">
             <div class="col-span-1 p-2">
                 <h2 class="text-xl font-semibold mb-3">Categories</h2>
                 <div>
@@ -157,7 +157,22 @@
     </main>
     <!-- ===== End: Main Section ===== -->
 
+    <!-- modal  -->
+    <!-- Open the modal using ID.showModal() method -->
+    <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
 
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+            <h3 class="text-lg font-bold">Hello!</h3>
+            <p class="py-4">Press ESC key or click the button below to close</p>
+            <div class="modal-action">
+                <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn">Close</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
     <!-- about the campaign  -->
 
     <section class="max-w-5xl mx-auto py-16 px-6">

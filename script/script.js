@@ -97,13 +97,13 @@ const showTressByCategory = (trees) => {
         trees.forEach((tree) => {
             //   console.log(tree);
             treesCardContainer.innerHTML += `
-            <div id="${tree.id}" class="card p-4 bg-white h-fit shadow-sm">
+            <div id="${tree.id}" class="card p-4 bg-gray-50 h-fit shadow-sm  hover:bg-white">
                 <figure class="h-40">
                     <img
                     src="${tree.image}"
                     alt="${tree.name}" />
                 </figure>
-                <div class=" overflow-clip">
+                <div onClick="my_modal_5.showModal()" class="overflow-clip">
                     <h2 class="card-title mt-3">${tree.name}</h2>
                     <p class="truncate text-[#1F2937] text-sm font-medium my-3">${tree.description}</p>
                     <div class="flex justify-between items-center">
