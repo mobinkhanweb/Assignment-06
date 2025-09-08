@@ -56,6 +56,16 @@ const showCategory = (categories) => {
     `;
     });
 
+    // load word detail 
+    const loadTreeDetail = async (id) => {
+        const url = `https://openapi.programming-hero.com/api/plant/${id}`;
+        const res = await fetch(url);
+        const details = await res.json();
+        console.log(details);
+    };
+
+
+
     // load Trees category
     categoriesContainer.addEventListener("click", (e) => {
         if (e.target.localName === "li") {
@@ -103,11 +113,11 @@ const showTressByCategory = (trees) => {
                     src="${tree.image}"
                     alt="${tree.name}" />
                 </figure>
-                <div onClick="my_modal_5.showModal()" class="overflow-clip">
+                <div class="overflow-clip">
                     <h2 class="card-title mt-3">${tree.name}</h2>
                     <p class="truncate text-[#1F2937] text-sm font-medium my-3">${tree.description}</p>
                     <div class="flex justify-between items-center">
-                        <div class="badge bg-green-200 text-[#15803D] font-medium">${tree.category}</div>
+                        <div onClick="loadTreeDetail(${tree.id})" class="badge bg-green-200 text-[#15803D] font-medium">${tree.category}</div>
                         <p class="font-medium text-[#1F2937]">$<span class="price">${tree.price}</span></p>
                     </div>
                     <div class="card-actions justify-end mt-3">
